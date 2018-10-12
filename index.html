@@ -161,6 +161,100 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-iOS-静态库SDK---a静态库的制作-" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/12/iOS-静态库SDK---a静态库的制作-/">iOS-静态库SDK .a静态库的制作</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/12/iOS-静态库SDK---a静态库的制作-/" class="archive-article-date">
+  	<time datetime="2018-10-12T08:38:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-12</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简介</p>
+<p>什么是库？<br>库是程序代码的集合，是共享程序代码的一种方式<br>根据源代码的公开情况，库可以分为 2 种类型</p>
+<p>开源库<br>公开源代码，能看到具体实现<br>比如 SDWebImage 、 AFNetworking</p>
+<p>闭源库<br>不公开源代码，是经过编译后的二进制文件，看不到具体实现<br>主要分为：静态库、动态库</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-7b3f47e09bcd9030.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>静态库和动态库</p>
+<p>静态库和动态库的存在形式<br>静态库： .a 和 .framework<br>动态库： .dylib 和 .framework</p>
+<p>下面开始介绍.a 库的制作过程</p>
+<p>1、新建一个静态库工程简介</p>
+<p>什么是库？<br>库是程序代码的集合，是共享程序代码的一种方式<br>根据源代码的公开情况，库可以分为 2 种类型</p>
+<p>开源库<br>公开源代码，能看到具体实现<br>比如 SDWebImage 、 AFNetworking</p>
+<p>闭源库<br>不公开源代码，是经过编译后的二进制文件，看不到具体实现<br>主要分为：静态库、动态库</p>
+<p>静态库和动态库</p>
+<p>静态库和动态库的存在形式<br>静态库： .a 和 .framework<br>动态库： .dylib 和 .framework</p>
+<p>下面开始介绍.a 库的制作过程</p>
+<p>1、新建一个静态库工程</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-afd374317c8919ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>2、添加静态库所包含的源代码：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-051da7f700d4dd52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>3、编写需要公开的头文件和代码方法：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-b53183013b791d84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="
+"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-d47c90791c0f5677.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>需要将公开的头文件拖至Public 分类中：<br><img src="http://upload-images.jianshu.io/upload_images/2160113-48b8b07a5645b790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>4、分别在模拟器和真机上编译，待.a 文件从红色变为白色 show in finder<br><img src="http://upload-images.jianshu.io/upload_images/2160113-9ebc8aac1f127f20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>5、合并.a 库</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-e6692d9e4735905e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-4a662cc7aa0cff0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>合并完成后会在工程文件路径下发现一个 libStaticLibChomp.a 静态库文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-ec60c59707b4dac8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>这个成功合并的.a 库就是最终可以使用的静态库，将.a 库 公开的头文件拖入工程即可 </p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-e62c704c2b6278ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/12/iOS-静态库SDK---a静态库的制作-/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-firstBlog" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     

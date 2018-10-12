@@ -6,18 +6,31 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.impbear.cn">
-  <title>Archives: 2018 | 恶魔熊攻城狮😈</title>
+  <title>iOS-静态库SDK .a静态库的制作 | 恶魔熊攻城狮😈</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="得知,吾幸.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="恶魔熊攻城狮😈">
-<meta property="og:url" content="http://www.impbear.cn/archives/2018/index.html">
+  <meta name="description" content="简介 什么是库？库是程序代码的集合，是共享程序代码的一种方式根据源代码的公开情况，库可以分为 2 种类型 开源库公开源代码，能看到具体实现比如 SDWebImage 、 AFNetworking 闭源库不公开源代码，是经过编译后的二进制文件，看不到具体实现主要分为：静态库、动态库  静态库和动态库 静态库和动态库的存在形式静态库： .a 和 .framework动态库： .dylib 和 .fra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS-静态库SDK .a静态库的制作">
+<meta property="og:url" content="http://www.impbear.cn/2018/10/12/iOS-静态库SDK---a静态库的制作-/index.html">
 <meta property="og:site_name" content="恶魔熊攻城狮😈">
-<meta property="og:description" content="得知,吾幸.">
+<meta property="og:description" content="简介 什么是库？库是程序代码的集合，是共享程序代码的一种方式根据源代码的公开情况，库可以分为 2 种类型 开源库公开源代码，能看到具体实现比如 SDWebImage 、 AFNetworking 闭源库不公开源代码，是经过编译后的二进制文件，看不到具体实现主要分为：静态库、动态库  静态库和动态库 静态库和动态库的存在形式静态库： .a 和 .framework动态库： .dylib 和 .fra">
 <meta property="og:locale" content="CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-7b3f47e09bcd9030.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-afd374317c8919ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-051da7f700d4dd52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-b53183013b791d84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-d47c90791c0f5677.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-48b8b07a5645b790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-9ebc8aac1f127f20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-e6692d9e4735905e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-4a662cc7aa0cff0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-ec60c59707b4dac8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2160113-e62c704c2b6278ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2018-10-12T08:42:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="恶魔熊攻城狮😈">
-<meta name="twitter:description" content="得知,吾幸.">
+<meta name="twitter:title" content="iOS-静态库SDK .a静态库的制作">
+<meta name="twitter:description" content="简介 什么是库？库是程序代码的集合，是共享程序代码的一种方式根据源代码的公开情况，库可以分为 2 种类型 开源库公开源代码，能看到具体实现比如 SDWebImage 、 AFNetworking 闭源库不公开源代码，是经过编译后的二进制文件，看不到具体实现主要分为：静态库、动态库  静态库和动态库 静态库和动态库的存在形式静态库： .a 和 .framework动态库： .dylib 和 .fra">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2160113-7b3f47e09bcd9030.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="恶魔熊攻城狮😈" type="application/atom+xml">
   
@@ -159,76 +172,197 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-iOS-静态库SDK---a静态库的制作-" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      iOS-静态库SDK .a静态库的制作
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/12/iOS-静态库SDK---a静态库的制作-/" class="archive-article-date">
+
+        
+        <a href="/2018/10/12/iOS-静态库SDK---a静态库的制作-/" class="archive-article-date">
   	<time datetime="2018-10-12T08:38:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-12</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/12/iOS-静态库SDK---a静态库的制作-/">iOS-静态库SDK .a静态库的制作</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>简介</p>
+<p>什么是库？<br>库是程序代码的集合，是共享程序代码的一种方式<br>根据源代码的公开情况，库可以分为 2 种类型</p>
+<p>开源库<br>公开源代码，能看到具体实现<br>比如 SDWebImage 、 AFNetworking</p>
+<p>闭源库<br>不公开源代码，是经过编译后的二进制文件，看不到具体实现<br>主要分为：静态库、动态库</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-7b3f47e09bcd9030.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>静态库和动态库</p>
+<p>静态库和动态库的存在形式<br>静态库： .a 和 .framework<br>动态库： .dylib 和 .framework</p>
+<p>下面开始介绍.a 库的制作过程</p>
+<p>1、新建一个静态库工程简介</p>
+<p>什么是库？<br>库是程序代码的集合，是共享程序代码的一种方式<br>根据源代码的公开情况，库可以分为 2 种类型</p>
+<p>开源库<br>公开源代码，能看到具体实现<br>比如 SDWebImage 、 AFNetworking</p>
+<p>闭源库<br>不公开源代码，是经过编译后的二进制文件，看不到具体实现<br>主要分为：静态库、动态库</p>
+<p>静态库和动态库</p>
+<p>静态库和动态库的存在形式<br>静态库： .a 和 .framework<br>动态库： .dylib 和 .framework</p>
+<p>下面开始介绍.a 库的制作过程</p>
+<p>1、新建一个静态库工程</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-afd374317c8919ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>2、添加静态库所包含的源代码：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-051da7f700d4dd52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>3、编写需要公开的头文件和代码方法：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-b53183013b791d84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="
+"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-d47c90791c0f5677.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>需要将公开的头文件拖至Public 分类中：<br><img src="http://upload-images.jianshu.io/upload_images/2160113-48b8b07a5645b790.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>4、分别在模拟器和真机上编译，待.a 文件从红色变为白色 show in finder<br><img src="http://upload-images.jianshu.io/upload_images/2160113-9ebc8aac1f127f20.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>5、合并.a 库</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-e6692d9e4735905e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-4a662cc7aa0cff0b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>合并完成后会在工程文件路径下发现一个 libStaticLibChomp.a 静态库文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-ec60c59707b4dac8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>这个成功合并的.a 库就是最终可以使用的静态库，将.a 库 公开的头文件拖入工程即可 </p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2160113-e62c704c2b6278ca.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/MrXCQ/KaWaiiAlertView/blob/master/zfb.jpg?raw=true">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="https://github.com/MrXCQ/KaWaiiAlertView/blob/master/wx.jpg?raw=true">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://www.impbear.cn/2018/10/12/iOS-静态库SDK---a静态库的制作-/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/22/firstBlog/" class="archive-article-date">
-  	<time datetime="2018-06-22T07:14:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-22</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/06/22/firstBlog/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">我的第一篇博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/22/firstBlog/">我的第一篇博客</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -251,8 +385,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
